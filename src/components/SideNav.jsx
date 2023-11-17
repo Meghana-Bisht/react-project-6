@@ -32,7 +32,7 @@ const SideNav = () => {
             base: "full",
             lg: "256px",
         }} h="100vh" justifyContent="space-between"
-
+            bg="white"
         >
             <Box>
                 <Heading fontSize="20px" color="#5F00D9" padding="54px 46px 24px 28px " as="h1">@MeghanaBisht</Heading>

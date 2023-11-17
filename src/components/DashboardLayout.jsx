@@ -22,7 +22,7 @@ const DashboardLayout = ({ title, children }) => {
                 <SideDrawer isOpen={isOpen} onClose={onClose} />
                 <Box flexGrow={1}>
                     <TopNav title={title} onOpen={onOpen} />
-                    <Container maxW="60rem" bg="gray" borderRadius="8px" >
+                    <Container mt="6" maxW="70rem" borderRadius="8px" >
                         {children}
                     </Container>
                 </Box>
