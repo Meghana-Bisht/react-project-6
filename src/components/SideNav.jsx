@@ -2,6 +2,7 @@ import { Box, HStack, Stack, Icon, Text, Heading } from "@chakra-ui/react";
 import { RxDashboard } from "react-icons/rx";
 import { TbArrowsDoubleNeSw } from "react-icons/tb";
 import { BiSupport } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const SideNav = () => {
 
     const navLinks = [{
@@ -12,7 +13,7 @@ const SideNav = () => {
     {
         icon: TbArrowsDoubleNeSw,
         text: "Transactions",
-        link: "/transactions"
+        link: "/transaction"
 
     }]
     // .stack{
@@ -38,32 +39,36 @@ const SideNav = () => {
                 <Heading fontSize="20px" color="#5F00D9" padding="54px 46px 24px 28px " as="h1">@MeghanaBisht</Heading>
                 <Box mt="6" mx="3">
                     {navLinks.map((nav) => (
-                        <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
-                            {
-                                bg: "#F3F3F7",
-                                borderRadius: "10px",
-                                color: "#171717"
+                        <Link to={nav.link} key={nav.text}>
+                            <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
+                                {
+                                    bg: "#F3F3F7",
+                                    borderRadius: "10px",
+                                    color: "#171717"
+                                }
                             }
-                        }
-                            color="#797e82"
-                            key={nav.text}>
-                            <Icon as={nav.icon} />
-                            <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">{nav.text}</Text>
-                        </HStack>))}
+                                color="#797e82">
+                                <Icon as={nav.icon} />
+                                <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">{nav.text}</Text>
+                            </HStack>
+                        </Link>
+                    ))}
                 </Box>
             </Box>
             <Box mt="6" mx="3" mb="6">
-                <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
-                    {
-                        bg: "#F3F3F7",
-                        borderRadius: "10px",
-                        color: "#171717"
+                <Link to="/support">
+                    <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
+                        {
+                            bg: "#F3F3F7",
+                            borderRadius: "10px",
+                            color: "#171717"
+                        }
                     }
-                }
-                    color="#797e82">
-                    <Icon as={BiSupport} />
-                    <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">Support</Text>
-                </HStack>
+                        color="#797e82">
+                        <Icon as={BiSupport} />
+                        <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">Support</Text>
+                    </HStack>
+                </Link>
             </Box>
         </Stack>
     )
