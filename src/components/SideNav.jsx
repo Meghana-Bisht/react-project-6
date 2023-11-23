@@ -2,8 +2,15 @@ import { Box, HStack, Stack, Icon, Text, Heading } from "@chakra-ui/react";
 import { RxDashboard } from "react-icons/rx";
 import { TbArrowsDoubleNeSw } from "react-icons/tb";
 import { BiSupport } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const SideNav = () => {
+
+    const location = useLocation();
+    console.log(location);
+
+    const isActiveLink = (link) => {
+        return location.pathname === link;
+    }
 
     const navLinks = [{
         icon: RxDashboard,
@@ -40,14 +47,14 @@ const SideNav = () => {
                 <Box mt="6" mx="3">
                     {navLinks.map((nav) => (
                         <Link to={nav.link} key={nav.text}>
-                            <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
+                            <HStack bg={isActiveLink(nav.link) ? "#F3F3F7" : "#transparent"} color={isActiveLink(nav.link) ? "#171717" : "#797E82"} borderRadius={"10px"} padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
                                 {
                                     bg: "#F3F3F7",
                                     borderRadius: "10px",
                                     color: "#171717"
                                 }
                             }
-                                color="#797e82">
+                                textColor="#797E82">
                                 <Icon as={nav.icon} />
                                 <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">{nav.text}</Text>
                             </HStack>
@@ -57,14 +64,14 @@ const SideNav = () => {
             </Box>
             <Box mt="6" mx="3" mb="6">
                 <Link to="/support">
-                    <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" _hover={
+                    <HStack padding="0px 12px" cursor="pointer" transition="0.5s ease" bg={isActiveLink("/support") ? "#F3F3F7" : "#transparent"} color={isActiveLink("/support") ? "#171717" : "#797e82"} _hover={
                         {
                             bg: "#F3F3F7",
                             borderRadius: "10px",
                             color: "#171717"
                         }
                     }
-                        color="#797e82">
+                        textColor="#797e82">
                         <Icon as={BiSupport} />
                         <Text fontSize="14px" padding="12px 6px" fontWeight="extrabold">Support</Text>
                     </HStack>

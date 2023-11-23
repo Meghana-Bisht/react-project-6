@@ -2,7 +2,7 @@ import { Card, Stack, HStack, FormControl, FormLabel, Input, Textarea, Checkbox,
 
 const ContactCard = () => {
     return (
-        <Card p={"6"} borderRadius={"16px"} flexGrow={1}>
+        <Card p={"6"} borderRadius={"16px"}>
             <Stack spacing={4}>
                 <Text fontWeight="bold" fontSize="sm">
                     You will receive response within 24 hours of time of submit.
