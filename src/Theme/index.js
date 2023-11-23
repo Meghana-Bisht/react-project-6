@@ -1,4 +1,4 @@
-import { extendTheme,withDefaultColorScheme, } from "@chakra-ui/react";
+import { extendTheme, withDefaultColorScheme, } from "@chakra-ui/react";
 
 export const theme = extendTheme({
     colors: {
@@ -99,6 +99,43 @@ export const theme = extendTheme({
             },
         },
     },
+    components: {
+        FormLabel: {
+            baseStyle: {
+                fontSize: "sm",
+                fontWeight: "bold",
+            },
+        },
+        Input: {
+            variants: {
+                outline: {
+                    field: {
+                        fontSize: "sm",
+                        fontWeight: "bold",
+                        h: "38px",
+                        borderRadius: "8px",
+                        _focus: {
+                            boxShadow: "0 0 0 1px #5f00d9"
+                        }
+                    },
+
+                },
+            },
+        },
+        Textarea: {
+            variants: {
+                outline: {
+                    fontSize: "sm",
+                    fontWeight: "bold",
+                    h: "38px",
+                    borderRadius: "8px",
+                    _focus: {
+                        boxShadow: "0 0 0 1px #5f00d9"
+                    },
+                },
+            },
+        },
+    }
 },
     withDefaultColorScheme({ colorScheme: "purple" }),
 

@@ -4,9 +4,9 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Button
 } from '@chakra-ui/react'
 import { FaBars, FaUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const TopNav = ({ title, onOpen }) => {
     return (
@@ -22,10 +22,16 @@ const TopNav = ({ title, onOpen }) => {
                         <Icon as={FaUserCircle} fontSize="2.5rem" />
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Dashboard</MenuItem>
-                        <MenuItem>Transactions</MenuItem>
+                        <Link to={"/"} key={'Dashboard'}>
+                            <MenuItem>Dashboard</MenuItem>
+                        </Link>
+                        <Link to={"/transaction"} key={'Transactions'}>
+                            <MenuItem>Transactions</MenuItem>
+                        </Link>
                         <MenuItem>Contact Us</MenuItem>
-                        <MenuItem>Support</MenuItem>
+                        <Link to={"/support"}>
+                            <MenuItem>Support</MenuItem>
+                        </Link>
                         <MenuItem>Log Out</MenuItem>
                     </MenuList>
                 </Menu>
